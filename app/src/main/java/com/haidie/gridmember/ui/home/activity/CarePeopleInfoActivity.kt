@@ -7,6 +7,7 @@ import com.haidie.gridmember.Constants
 import com.haidie.gridmember.R
 import com.haidie.gridmember.base.BaseActivity
 import com.haidie.gridmember.base.BaseFragment
+import com.haidie.gridmember.ui.home.fragment.CarePeopleInfoListFragment
 import com.haidie.gridmember.ui.home.fragment.FlowPeopleInfoListFragment
 
 import kotlinx.android.synthetic.main.common_toolbar.*
@@ -15,11 +16,11 @@ import kotlinx.android.synthetic.main.fragment_order.*
 /**
  * Create by   Administrator
  *      on     2018/12/18 10:31
- * description  流动人口
+ * description  关爱
  */
 class CarePeopleInfoActivity : BaseActivity() {
 
-    private var delivery_id: String?=null
+    private var delivery_id: String? = null
 
 
     override fun initData() {
@@ -45,7 +46,7 @@ class CarePeopleInfoActivity : BaseActivity() {
 
     private fun initViewPagerAndTabLayout() {
         mTabDataList.forEachIndexed { index, _ ->
-            val fragment = FlowPeopleInfoListFragment.getInstance(index + 1)
+            val fragment = CarePeopleInfoListFragment.getInstance(index + 1, "" + delivery_id)
             mFragments.add(fragment)
         }
         viewPagerOrder.adapter = object : FragmentStatePagerAdapter(supportFragmentManager) {

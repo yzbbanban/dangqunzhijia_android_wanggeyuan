@@ -7,13 +7,18 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.haidie.gridmember.Constants
 import com.haidie.gridmember.R
 import com.haidie.gridmember.base.BaseFragment
+import com.haidie.gridmember.mvp.bean.CarePeopleData
+import com.haidie.gridmember.mvp.bean.CarePeopleListData
 import com.haidie.gridmember.mvp.bean.FlowPeopleData
 import com.haidie.gridmember.mvp.bean.FlowPeopleListData
+import com.haidie.gridmember.mvp.contract.home.CarePeopleListContract
 import com.haidie.gridmember.mvp.contract.home.FlowPeopleContract
+import com.haidie.gridmember.mvp.presenter.home.CarePeoplePresenter
 import com.haidie.gridmember.mvp.presenter.home.FlowPeoplePresenter
 import com.haidie.gridmember.ui.home.activity.MessageNotificationActivity
 import com.haidie.gridmember.ui.home.activity.ReportManagementActivity
 import com.haidie.gridmember.ui.home.activity.ToDoListActivity
+import com.haidie.gridmember.ui.home.adapter.CarePeopleRecyclerViewAdapter
 import com.haidie.gridmember.ui.home.adapter.FlowPeopleRecyclerViewAdapter
 import com.haidie.gridmember.utils.LogHelper
 import com.haidie.gridmember.utils.Preference
@@ -26,22 +31,25 @@ import kotlinx.android.synthetic.main.fragment_order_list.*
  *  on 2019/3/17  20:09
  * description 流动人口
  */
-class CarePeopleInfoListFragment : BaseFragment(), FlowPeopleContract.View {
+class CarePeopleInfoListFragment : BaseFragment(), CarePeopleListContract.View {
+
 
     private var token by Preference(Constants.TOKEN, Constants.EMPTY_STRING)
     private var uid by Preference(Constants.UID, -1)
-    private var mData = ArrayList<FlowPeopleListData>()
-    private var orderAdapter: FlowPeopleRecyclerViewAdapter? = null
-    private val mPresenter by lazy { FlowPeoplePresenter() }
+    private var mData = ArrayList<CarePeopleListData>()
+    private var orderAdapter: CarePeopleRecyclerViewAdapter? = null
+    private val mPresenter by lazy { CarePeoplePresenter() }
     private var loginAccount by Preference(Constants.ACCOUNT, Constants.EMPTY_STRING)
     private var index = 0
+    private var delivery_id = ""
 
     companion object {
-        fun getInstance(index: Int): CarePeopleInfoListFragment {
+        fun getInstance(index: Int, delivery_id: String): CarePeopleInfoListFragment {
             val fragment = CarePeopleInfoListFragment()
             val bundle = Bundle()
             fragment.arguments = bundle
             fragment.index = index
+            fragment.delivery_id = delivery_id
             return fragment
         }
     }
@@ -54,7 +62,7 @@ class CarePeopleInfoListFragment : BaseFragment(), FlowPeopleContract.View {
             lazyLoad()
             it.finishRefresh(1000)
         }
-        orderAdapter = FlowPeopleRecyclerViewAdapter(R.layout.flow_item_view_item, mData)
+        orderAdapter = CarePeopleRecyclerViewAdapter(R.layout.flow_item_view_item, mData)
 
         rvOrder?.let {
             it.setHasFixedSize(true)
@@ -63,9 +71,9 @@ class CarePeopleInfoListFragment : BaseFragment(), FlowPeopleContract.View {
             it.adapter = orderAdapter
         }
         lazyLoad()
-        mPresenter.getFlowPeoData(uid, token, "" + index)
+        mPresenter.getCarePeoData(uid, token, "" + index, "" + delivery_id)
         orderAdapter?.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
-            LogHelper.d("=====>  "+mData[position].name+""+mData[position].block_no)
+            LogHelper.d("=====>  " + mData[position].name + "" + mData[position].block_no)
         }
     }
 
@@ -74,9 +82,10 @@ class CarePeopleInfoListFragment : BaseFragment(), FlowPeopleContract.View {
         mPresenter.detachView()
     }
 
-    override fun setFlowPeoData(flowPeopleData: FlowPeopleData) {
+
+    override fun setCareData(carePeopleData: CarePeopleData) {
         mData.clear()
-        mData.addAll(flowPeopleData.list)
+        mData.addAll(carePeopleData.list)
         orderAdapter?.let {
             it.replaceData(mData)
         }

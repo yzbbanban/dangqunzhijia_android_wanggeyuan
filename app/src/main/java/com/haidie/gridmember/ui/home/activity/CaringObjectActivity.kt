@@ -49,7 +49,7 @@ class CaringObjectActivity : BaseActivity(), GetCareContract.View {
         tvTitle.text = "关爱对象"
         adapter = GetCareAdapter(R.layout.personnel_supervision_item, mData)
         adapter!!.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
-            val intent = Intent(this, DrugAddictActivity::class.java)
+            val intent = Intent(this, CarePeopleInfoActivity::class.java)
             intent.putExtra(Constants.TEXT, adapter!!.data[position].delivery_id)
             intent.putExtra(Constants.NAME, adapter!!.data[position].name)
             startActivity(intent)

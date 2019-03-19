@@ -2,8 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
+                android:id="@+id/rlBackGround"
                 android:background="@drawable/house_item_bg"
                 android:layout_height="@dimen/dp_60">
+
+
     <TextView
             android:id="@+id/tvRoomNoUsername"
             android:textSize="@dimen/sp_16"
@@ -13,6 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="RelativeOverlap"/>
+
     <ImageView
             android:contentDescription="@null"
             android:layout_width="wrap_content"
@@ -21,4 +25,5 @@
             android:layout_marginEnd="@dimen/dp_10"
             android:src="@drawable/ic_chevron_right_black_24dp"
             android:layout_height="wrap_content"/>
+
 </RelativeLayout>

@@ -219,6 +219,10 @@
                 android:name=".ui.home.activity.FlowPeopleInfoActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.CarePeopleInfoActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
     </application>
 
 </manifest>

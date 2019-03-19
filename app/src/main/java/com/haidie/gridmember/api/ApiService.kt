@@ -491,10 +491,10 @@ interface ApiService {
      */
     @FormUrlEncoded
     @POST("api/grid/newcitizen/getCarePeopleList")
-    fun getCareCountPeopleListData(
+    fun getCarePeopleListData(
         @Field("admin_id") admin_id: Int, @Field("token") token: String, @Field("status") status: String, @Field(
             "is_children"
         ) is_children: String
-    ): Observable<BaseResponse<CareCountData>>
+    ): Observable<BaseResponse<CarePeopleData>>
 
 }
