@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">网格员</string>
+
+    <string name="navigation_drawer_open">打开导航菜单</string>
+    <string name="navigation_drawer_close">关闭导航菜单</string>
+
+    <string name="custom_content_text">%d%%</string>
+
+    <string name="http_error">网络异常</string>
+    <string name="unKnown_error">未知错误</string>
+    <string name="failed_to_connect">连接失败</string>
+    <string name="failed_to_parse">解析失败</string>
+
+    <string name="empty_view_hint">暂无数据</string>
+    <string name="error_view_hint">加载失败</string>
+    <string name="no_network_view_hint">网络异常</string>
+
+    <string name="load_more_no_data">暂无更多数据</string>
+
+    <string name="message_permission_rationale">授予以下权限以继续该程序:\n\n%1$s</string>
+    <string name="title_dialog">提示</string>
+    <string name="resume">继续</string>
+    <string name="cancel">取消</string>
+    <string name="message_permission_always_failed">请在设置中授予以下权限:\n\n%1$s</string>
+    <string name="setting">设置</string>
+    <string name="message_setting_comeback">从设置页面返回</string>
+
+    <string name="version_content_text">版本V%s</string>
+</resources>

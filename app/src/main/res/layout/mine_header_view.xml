@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="@color/mine_personal_bg"
+        android:layout_height="@dimen/dp_200">
+        <ImageView
+                android:id="@+id/ivPhoto"
+                tools:src="@drawable/icon_default"
+                android:contentDescription="@null"
+                android:layout_width="@dimen/dp_66"
+                android:layout_height="@dimen/dp_66"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dp_16"/>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/dp_100"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+            <TextView
+                    android:id="@+id/tvNickName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_20"
+                    tools:text="吴将"/>
+            <TextView
+                    android:id="@+id/tvMobile"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    tools:text="18512503890"/>
+        </LinearLayout>
+
+</RelativeLayout>

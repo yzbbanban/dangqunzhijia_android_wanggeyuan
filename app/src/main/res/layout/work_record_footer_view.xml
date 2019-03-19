@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:gravity="center_vertical"
+              android:background="#0066FF"
+              android:padding="@dimen/dp_20"
+              android:layout_height="@dimen/dp_150">
+    <ImageView
+            android:id="@+id/ivAvatar"
+            android:contentDescription="@null"
+            tools:src="@drawable/ic_header"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"/>
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp_20"
+            android:layout_height="match_parent">
+        <TextView
+                android:id="@+id/tvUsername"
+                tools:text="何宝阳 业主"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/tvPhone"
+                tools:text="18512503890"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+            android:id="@+id/tvType"
+            tools:text="出租"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

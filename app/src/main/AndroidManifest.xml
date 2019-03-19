@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.haidie.gridmember">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/> <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/> <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/> <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> <!-- 添加安装未知来源应用的权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/> <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+            android:name=".MyApplication"
+            android:allowBackup="false"
+            android:icon="@mipmap/ic_app"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            tools:replace="android:allowBackup">
+        <activity android:name=".ui.home.activity.OrderActivity">
+        </activity>
+        <activity
+                android:name=".ui.main.activity.SplashActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTransparentTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <meta-data
+                android:name="com.baidu.lbsapi.API_KEY"
+                android:value="yZT2z24etKZeXWAiz1K7IUk5BzAruqio">
+        </meta-data>
+
+        <service
+                android:name="com.baidu.location.f"
+                android:enabled="true"
+                android:process=":remote"/>
+
+        <activity
+                android:name=".ui.main.activity.LoginActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTransparentTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+
+        <receiver
+                android:name=".receiver.MsgReceiver"
+                android:exported="true">
+            <intent-filter>
+
+                <!-- 接收消息透传 -->
+                <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE"/>
+                <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
+                <action android:name="com.tencent.android.tpush.action.FEEDBACK"/>
+            </intent-filter>
+        </receiver>
+
+        <provider
+                android:name=".MyFileProvider"
+                android:authorities="com.haidie.gridmember.provider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/file_paths"/>
+        </provider>
+
+        <activity
+                android:name=".ui.main.activity.MainActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTransparentTheme"/>
+        <activity
+                android:name=".ui.home.activity.ResidentManagementActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.HouseSearchListActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.HouseDetailActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.CheckInPunchActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.ProblemReportingActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.AddResidentInfoActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.BasicInfoActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.PersonnelSupervisionActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.DrugAddictActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.ReturnVisitRegistrationActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.CaringObjectActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.ToDoListActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.WorkRecordActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.HistoryRecordActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.ProblemReportingListActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.WebViewDetailActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.EducationalWorkInfoActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.PartyMemberInfoActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.FamilyStatusActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.AddressBookActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.VehicleInformationListActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.NewVehicleInformationActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.EditVehicleInformationActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.EditBasicInfoActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.CaringInfoActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.ReportManagementActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.ReportManagementWebViewActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.MessageNotificationActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.mine.activity.ChangePasswordActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.mine.activity.AboutUsActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.ContradictoryDisputeOrBasicAppealActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.ResidentInfoSearchActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.mine.activity.ModifyAvatarActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.FlowPeopleInfoActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:id="@+id/llReportRecyclerItemGroup"
+              android:gravity="center_vertical"
+              android:layout_height="@dimen/dp_90">
+
+    <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/tvReportName"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                tools:text="24栋路灯坏了"/>
+
+        <ImageView
+                android:id="@+id/ivReport"
+                android:layout_weight="1"
+                tools:src="@drawable/icon_default"
+                android:layout_marginStart="@dimen/dp_10"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"/>
+    </LinearLayout>
+
+    <View
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"></View>
+
+    <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/tvReportType"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                tools:text="公共设置损坏"/>
+
+        <TextView
+                android:id="@+id/tvReporter"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                tools:src="@drawable/ic_header"
+                tools:text="上报人员:吴将（网格员）"/>
+    </LinearLayout>
+
+
+</LinearLayout>

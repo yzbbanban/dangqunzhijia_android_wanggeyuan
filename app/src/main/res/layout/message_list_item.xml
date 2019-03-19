@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_10">
+    <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            tools:text="7月31日文化志愿活动"/>
+    <TextView
+            android:id="@+id/tvContent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/dp_10"
+            android:textSize="@dimen/sp_14"
+            android:singleLine="true"
+            android:ellipsize="end"
+            tools:text="江苏宿迁市宿城区江苏宿迁市宿城区江苏宿迁市宿城区"/>
+    <TextView
+            android:id="@+id/tvTime"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:drawablePadding="@dimen/dp_10"
+            tools:text="time"/>
+
+</LinearLayout>

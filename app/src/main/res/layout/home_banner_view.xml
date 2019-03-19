@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_210"
+                app:image_scale_type="fit_xy"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layoutManager="GridLayoutManager"
+        tools:orientation="vertical"
+        tools:spanCount="4"
+        tools:listitem="@layout/home_recycler_view_header_item"/>
+
+</LinearLayout>
