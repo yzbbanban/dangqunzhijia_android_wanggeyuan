@@ -8,7 +8,7 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
  *      on     2018/12/07 09:45
  * description
  */
-data class BlockInfoData constructor (var id: Int, var title: String, var number: String? = "") :
+data class BlockInfoData constructor(var id: Int, var title: String, var number: String? = "", var is_visist: Int) :
     AbstractExpandableItem<UnitListData>(), MultiItemEntity {
 
     override fun getItemType(): Int = 1
