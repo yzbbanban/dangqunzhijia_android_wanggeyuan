@@ -2,6 +2,7 @@ package com.haidie.gridmember.utils
 
 import android.content.Context
 import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.haidie.gridmember.R
 import com.haidie.gridmember.api.UrlConstant
@@ -73,4 +74,5 @@ object ImageLoader {
             .placeholder(R.drawable.icon_default)
             .into(iv)
     }
+
 }

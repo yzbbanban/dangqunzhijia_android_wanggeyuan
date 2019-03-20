@@ -6,6 +6,11 @@
         android:orientation="vertical"
         android:layout_height="match_parent">
 
+    <View
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25"/>
+
     <include layout="@layout/common_toolbar"/>
 
     <com.haidie.gridmember.view.MultipleStatusView

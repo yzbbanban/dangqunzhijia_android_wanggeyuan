@@ -7,16 +7,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-            android:id="@+id/slOrder"
+    <com.haidie.gridmember.view.MultipleStatusView
+            android:id="@+id/orderMultipleStatusView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:emptyView="@layout/layout_empty_view"
+            app:errorView="@layout/layout_error_view"
+            app:loadingView="@layout/layout_loading_view"
+            app:noNetworkView="@layout/layout_no_network_view">
 
-        <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvOrder"
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/slOrder"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:overScrollMode="never"
-                android:scrollbars="none"/>
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+                android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"/>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </com.haidie.gridmember.view.MultipleStatusView>
+
 </LinearLayout>

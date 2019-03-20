@@ -462,12 +462,16 @@ interface ApiService {
 
 
     /**
-     * 通讯录接口
+     * 工单列表
      * http://xx.com/api/grid/newcitizen/getFlowPeopleList
      */
     @FormUrlEncoded
-    @POST("api/grid/newcitizen/xxx")
-    fun getOrderData(@Field("admin_id") admin_id: Int, @Field("token") token: String, @Field("status") status: String): Observable<BaseResponse<ArrayList<OrderData>>>
+    @POST("api/grid/assign/assignJobList")
+    fun getOrderData(
+        @Field("admin_id") admin_id: Int, @Field("token") token: String,
+        @Field("status") status: String,
+        @Field("page") page: String, @Field("size") size: String
+    ): Observable<BaseResponse<OrderData>>
 
     /**
      * 流动人口列表
@@ -475,7 +479,10 @@ interface ApiService {
      */
     @FormUrlEncoded
     @POST("api/grid/newcitizen/getFlowPeopleList")
-    fun getFlowPeopleData(@Field("admin_id") admin_id: Int, @Field("token") token: String, @Field("status") status: String): Observable<BaseResponse<FlowPeopleData>>
+    fun getFlowPeopleData(
+        @Field("admin_id") admin_id: Int, @Field("token") token: String,
+        @Field("status") status: String
+    ): Observable<BaseResponse<FlowPeopleData>>
 
     /**
      * 关爱人员统计列表
@@ -492,9 +499,8 @@ interface ApiService {
     @FormUrlEncoded
     @POST("api/grid/newcitizen/getCarePeopleList")
     fun getCarePeopleListData(
-        @Field("admin_id") admin_id: Int, @Field("token") token: String, @Field("status") status: String, @Field(
-            "is_children"
-        ) is_children: String
+        @Field("admin_id") admin_id: Int, @Field("token") token: String,
+        @Field("status") status: String, @Field("is_children") is_children: String
     ): Observable<BaseResponse<CarePeopleData>>
 
 }
