@@ -60,11 +60,17 @@ class HomeFragment : BaseFragment(), HomeContract.View {
         "物业问题", "家庭走访", "矛盾纠纷", "公共安全",
         "通讯录", "流动人口", "监管人员", "关爱对象"
     )
+//    private val titles = arrayOf(
+//        "${DateUtils.getNowTimeMonth()}月待办事项", "${DateUtils.getNowTimeMonth()}月上报管理",
+//        "${DateUtils.getNowTimeMonth()}月工作统计", "消息通知",
+//        "打卡签到"
+//    )
+
     private val titles = arrayOf(
-        "${DateUtils.getNowTimeMonth()}月待办事项", "${DateUtils.getNowTimeMonth()}月上报管理",
-        "${DateUtils.getNowTimeMonth()}月工作统计", "消息通知",
-        "打卡签到"
+        "工作任务",
+        "${DateUtils.getNowTimeMonth()}月上报管理"
     )
+
 
     companion object {
         fun getInstance(title: String): HomeFragment {
@@ -99,29 +105,33 @@ class HomeFragment : BaseFragment(), HomeContract.View {
             val title = adapter!!.data[position].title
             when (title) {
 //                12月待办事项
+//                titles[0] -> {
+//                    toActivity(ToDoListActivity::class.java)
+//                }
+                //工作任务
                 titles[0] -> {
-                    toActivity(ToDoListActivity::class.java)
+                    toActivity(WorkTaskInfoActivity::class.java)
                 }
                 //12月上报管理
                 titles[1] -> {
                     toActivity(ReportManagementActivity::class.java)
                 }
 //                12月工作统计
-                titles[2] -> {
-                    showShort("敬请期待")
-//                    val intent = Intent(activity, WorkRecordActivity::class.java)
-//                    intent.putExtra(Constants.TEXT,title)
-//                    startActivity(intent)
-//                    activity.overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out)
-                }
-                //消息通知
-                titles[3] -> {
-                    toActivity(MessageNotificationActivity::class.java)
-                }
-                //打卡签到
-                titles[4] -> {
-                    showShort("敬请期待")
-                }
+//                titles[2] -> {
+//                    showShort("敬请期待")
+////                    val intent = Intent(activity, WorkRecordActivity::class.java)
+////                    intent.putExtra(Constants.TEXT,title)
+////                    startActivity(intent)
+////                    activity.overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out)
+//                }
+//                //消息通知
+//                titles[3] -> {
+//                    toActivity(MessageNotificationActivity::class.java)
+//                }
+//                //打卡签到
+//                titles[4] -> {
+//                    showShort("敬请期待")
+//                }
 
             }
 
@@ -230,11 +240,11 @@ class HomeFragment : BaseFragment(), HomeContract.View {
             dataList.add(map)
         }
         mData.clear()
-        mData.add(MainData(titles[0], null, R.color.bg_yellow))
-        mData.add(MainData(titles[1], null, R.color.bg_green))
-        mData.add(MainData(titles[2], null, R.color.bg_orange))
-        mData.add(MainData(titles[3], null, R.color.bg_orange))
-        mData.add(MainData(titles[4], null, R.color.bg_orange))
+        mData.add(MainData(titles[0], null, R.color.bg_orange))
+        mData.add(MainData(titles[1], null, R.color.bg_orange))
+//        mData.add(MainData(titles[2], null, R.color.bg_orange))
+//        mData.add(MainData(titles[3], null, R.color.bg_orange))
+//        mData.add(MainData(titles[4], null, R.color.bg_orange))
         adapter?.replaceData(mData)
         mPresenter.getHomeBannerData(uid, token)
     }

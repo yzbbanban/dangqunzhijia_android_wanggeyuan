@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/common_toolbar"/>
+
+    <com.haidie.gridmember.view.MultipleStatusView
+            android:id="@+id/multipleStatusOrderView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:emptyView="@layout/layout_empty_view"
+            app:errorView="@layout/layout_error_view"
+            app:loadingView="@layout/layout_loading_view"
+            app:noNetworkView="@layout/layout_no_network_view">
+        <!--<FrameLayout
+                android:id="@+id/frameLayoutOrder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>-->
+        <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/tabLayoutOrder"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:background="@color/white"
+                app:tl_tab_space_equal="true"
+                app:tl_indicator_corner_radius="@dimen/dp_5"
+                app:tl_indicator_style="NORMAL"
+                app:tl_indicator_color="@color/colorPrimary"
+                app:tl_indicator_height="@dimen/dp_2"
+                app:tl_indicator_gravity="BOTTOM"
+                app:tl_textsize="@dimen/sp_14"
+                app:tl_textSelectColor="@color/colorPrimary"
+                app:tl_textUnselectColor="@color/black"/>
+
+        <View
+                android:layout_below="@id/tabLayoutOrder"
+                android:layout_width="match_parent"
+                android:background="@color/background_color"
+                android:layout_height="@dimen/dp_1"/>
+
+        <android.support.v4.view.ViewPager
+                android:id="@+id/viewPagerOrder"
+                android:layout_below="@id/tabLayoutOrder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </com.haidie.gridmember.view.MultipleStatusView>
+
+</LinearLayout>

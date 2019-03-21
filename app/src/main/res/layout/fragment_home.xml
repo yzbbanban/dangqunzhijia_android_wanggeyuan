@@ -25,7 +25,7 @@
                     android:background="@color/white"
                     tools:layoutManager="GridLayoutManager"
                     tools:orientation="vertical"
-                    tools:spanCount="2"
+                    tools:spanCount="1"
                     tools:listitem="@layout/home_item"/>
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
     </com.haidie.gridmember.view.MultipleStatusView>

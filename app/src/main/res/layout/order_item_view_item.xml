@@ -31,15 +31,6 @@
                 android:layout_height="@dimen/dp_50"/>
     </LinearLayout>
 
-    <View
-            android:layout_marginLeft="@dimen/dp_10"
-            android:layout_marginRight="@dimen/dp_10"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/bar_grey"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"></View>
-
 
     <LinearLayout
             android:layout_gravity="center"
@@ -47,6 +38,7 @@
             android:layout_height="wrap_content">
 
         <TextView
+                android:gravity="center"
                 android:id="@+id/tvReportType"
                 android:layout_weight="1"
                 android:textColor="@color/black"
@@ -57,6 +49,7 @@
                 tools:text="公共设置损坏"/>
 
         <TextView
+                android:gravity="center"
                 android:id="@+id/tvReporter"
                 android:layout_weight="1"
                 android:textColor="@color/black"
@@ -71,5 +64,5 @@
             android:layout_marginBottom="5dp"
             android:background="@color/black"
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"></View>
+            android:layout_height="1dp"></View>
 </LinearLayout>
