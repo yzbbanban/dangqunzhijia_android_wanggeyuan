@@ -40,13 +40,13 @@ android {
         release {
             keyAlias 'haidie-tech'
             keyPassword 'pwd123456'
-            storeFile file('/Users/YZBbanban/Downloads/android app/money/dangqunzhijia_android_wanggeyuan/signingfile/grid.jks')
+            storeFile file('G:/Android/dangqunzhijia_android_wanggeyuan2/signingfile/grid.jks')
             storePassword 'pwd123456'
         }
         debug {
             keyAlias 'haidie-tech'
             keyPassword 'pwd123456'
-            storeFile file('/Users/YZBbanban/Downloads/android app/money/dangqunzhijia_android_wanggeyuan/signingfile/grid.jks')
+            storeFile file('G:/Android/dangqunzhijia_android_wanggeyuan2/signingfile/grid.jks')
             storePassword 'pwd123456'
         }
     }
