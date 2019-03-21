@@ -11,11 +11,11 @@ import com.haidie.gridmember.mvp.bean.OrderData
  */
 class OrderContract {
     interface View : IBaseView {
-        fun setOrderData(orderData: ArrayList<OrderData>)
+        fun setOrderData(orderData: OrderData)
         fun showError(msg: String, errorCode: Int)
     }
 
     interface Presenter : IPresenter<View> {
-        fun getOrderData(admin_id: Int, token: String)
+        fun getOrderData(admin_id: Int, token: String, status: String, page: String, size: String)
     }
 }

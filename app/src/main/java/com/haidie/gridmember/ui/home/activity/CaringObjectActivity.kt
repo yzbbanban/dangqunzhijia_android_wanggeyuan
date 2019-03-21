@@ -37,7 +37,7 @@ class CaringObjectActivity : BaseActivity(), GetCareContract.View {
 
     override fun initData() {
         mPresenter.attachView(this)
-        mData.add(CareCountData(1, "疾病患者", 1, 10, 10))
+//        mData.add(CareCountData(1, "疾病患者", 1, 10, 10))
         mPresenter.getCareListData(uid, token)
 
     }

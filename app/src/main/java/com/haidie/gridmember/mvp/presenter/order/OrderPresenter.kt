@@ -16,14 +16,14 @@ import com.haidie.gridmember.rx.SchedulerUtils
  */
 class OrderPresenter : BasePresenter<OrderContract.View>(), OrderContract.Presenter {
 
-    override fun getOrderData(admin_id: Int, token: String) {
+    override fun getOrderData(admin_id: Int, token: String, status: String, page: String, size: String) {
         checkViewAttached()
         mRootView?.showLoading()
-        val disposable = RetrofitManager.service.getOrderData(admin_id, token, "1")
+        val disposable = RetrofitManager.service.getOrderData(admin_id, token, status, page, size)
             .compose(SchedulerUtils.ioToMain())
             .compose(RxUtils.handleResult())
-            .subscribeWith(object : BaseObserver<ArrayList<OrderData>>("获取数据失败") {
-                override fun onNext(t: ArrayList<OrderData>) {
+            .subscribeWith(object : BaseObserver<OrderData>("获取数据失败") {
+                override fun onNext(t: OrderData) {
                     mRootView?.apply {
                         dismissLoading()
                         setOrderData(t)

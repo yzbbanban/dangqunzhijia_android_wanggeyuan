@@ -28,6 +28,10 @@ class OrderFragment : BaseFragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
+
     override fun getLayoutId(): Int = R.layout.fragment_order
     override fun initView() {
         tvTitle.text = mTitle

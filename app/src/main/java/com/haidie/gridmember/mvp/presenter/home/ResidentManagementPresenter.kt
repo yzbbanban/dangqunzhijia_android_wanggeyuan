@@ -54,7 +54,7 @@ class ResidentManagementPresenter : BasePresenter<ResidentManagementContract.Vie
                 override fun onNext(t: ArrayList<UnitListData>) {
                     mRootView?.apply {
                         map.put(title,t)
-                        level1Item = BlockInfoData(id,title.toString(),null,1)
+                        level1Item = BlockInfoData(id,title.toString(),null,0)
                         t.forEach {
                             level1Item.addSubItem(it)
                         }
