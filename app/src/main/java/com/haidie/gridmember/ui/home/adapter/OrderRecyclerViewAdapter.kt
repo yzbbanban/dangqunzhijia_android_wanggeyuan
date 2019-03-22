@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.haidie.gridmember.R
+import com.haidie.gridmember.api.UrlConstant
 import com.haidie.gridmember.mvp.bean.AddressBookData
 import com.haidie.gridmember.mvp.bean.OrderData
 import com.haidie.gridmember.mvp.bean.OrderListData
@@ -34,7 +35,7 @@ class OrderRecyclerViewAdapter(layoutResId: Int, data: ArrayList<OrderListData>?
 //        helper.addOnClickListener(R.id.recyclerViewItem)
 
         if (item!!.img1 != null) {
-            ImageLoader.load(mContext, item!!.img1 as String, ivReport)
+            ImageLoader.load(mContext, UrlConstant.BASE_URL_HOST + item!!.img1 as String, ivReport)
         } else {
             ImageLoader.load(mContext, R.drawable.icon_default, ivReport)
         }

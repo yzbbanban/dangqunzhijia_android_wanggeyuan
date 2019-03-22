@@ -462,8 +462,21 @@ interface ApiService {
 
 
     /**
-     * 工单列表
-     * http://xx.com/api/grid/newcitizen/getFlowPeopleList
+     * 任务工单
+     * http://xx.com/api/grid/newcitizen/getJobList
+     */
+    @FormUrlEncoded
+    @POST("api/grid/job/getJobList")
+    fun getWorkData(
+        @Field("admin_id") admin_id: Int, @Field("token") token: String,
+        @Field("status") status: String,
+        @Field("page") page: String, @Field("size") size: String
+    ): Observable<BaseResponse<OrderData>>
+
+
+    /**
+     * 派单工单列表
+     * http://xx.com/api/grid/newcitizen/assignJobList
      */
     @FormUrlEncoded
     @POST("api/grid/assign/assignJobList")
@@ -472,6 +485,7 @@ interface ApiService {
         @Field("status") status: String,
         @Field("page") page: String, @Field("size") size: String
     ): Observable<BaseResponse<OrderData>>
+
 
     /**
      * 流动人口列表

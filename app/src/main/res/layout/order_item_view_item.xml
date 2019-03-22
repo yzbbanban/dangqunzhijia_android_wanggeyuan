@@ -31,12 +31,14 @@
                 android:layout_height="@dimen/dp_50"/>
     </LinearLayout>
 
+
     <LinearLayout
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         <TextView
+                android:gravity="center"
                 android:id="@+id/tvReportType"
                 android:layout_weight="1"
                 android:textColor="@color/black"
@@ -47,6 +49,7 @@
                 tools:text="公共设置损坏"/>
 
         <TextView
+                android:gravity="center"
                 android:id="@+id/tvReporter"
                 android:layout_weight="1"
                 android:textColor="@color/black"

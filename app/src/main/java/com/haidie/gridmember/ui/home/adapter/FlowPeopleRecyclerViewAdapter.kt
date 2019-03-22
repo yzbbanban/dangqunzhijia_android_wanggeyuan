@@ -5,6 +5,7 @@ import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.haidie.gridmember.R
+import com.haidie.gridmember.api.UrlConstant
 import com.haidie.gridmember.mvp.bean.FlowPeopleListData
 import com.haidie.gridmember.utils.ImageLoader
 
@@ -22,8 +23,8 @@ class FlowPeopleRecyclerViewAdapter(layoutResId: Int, data: ArrayList<FlowPeople
         val tvFlowName = helper!!.getView<TextView>(R.id.tvFlowName)
         val tvHouseNumber = helper!!.getView<TextView>(R.id.tvHouseNumber)
         if (item!!.avatar != null) {
-            ImageLoader.load(mContext, item!!.avatar as String, ivHeaderImage)
-        }else{
+            ImageLoader.load(mContext, UrlConstant.BASE_URL_HOST + item!!.avatar as String, ivHeaderImage)
+        } else {
             ImageLoader.load(mContext, R.drawable.ic_header, ivHeaderImage)
         }
 
