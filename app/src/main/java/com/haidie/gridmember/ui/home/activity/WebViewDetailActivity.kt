@@ -42,7 +42,11 @@ class WebViewDetailActivity : BaseActivity() {
     }
 
     override fun onResume() {
-        mAgentWeb!!.webLifeCycle.onResume()
+        try {
+            mAgentWeb!!.webLifeCycle.onResume()
+        } catch (e: Exception) {
+
+        }
         super.onResume()
     }
 

@@ -53,8 +53,8 @@ class HomeFragment : BaseFragment(), HomeContract.View {
     private var token by Preference(Constants.TOKEN, Constants.EMPTY_STRING)
     private val mPresenter by lazy { HomePresenter() }
     private val icons = arrayOf(
-        R.drawable.property_problem, R.drawable.family_visit, R.drawable.family_visit, R.drawable.public_safety,
-        R.drawable.family_visit, R.drawable.family_visit, R.drawable.personnel_supervision, R.drawable.public_safety
+        R.drawable.property_problem, R.drawable.family_visit, R.drawable.fight, R.drawable.public_safety,
+        R.drawable.tel_note, R.drawable.flow_people, R.drawable.personnel_supervision, R.drawable.care_people
     )
     private val texts = arrayOf(
         "物业问题", "家庭走访", "矛盾纠纷", "公共安全",

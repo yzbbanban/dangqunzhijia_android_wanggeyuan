@@ -488,6 +488,43 @@ interface ApiService {
 
 
     /**
+     * 派单工单列表
+     * http://xx.com/api/grid/newcitizen/assignJobList
+     */
+    @FormUrlEncoded
+    @POST("api/grid/assign/dptList")
+    fun getOrderDepartData(
+        @Field("admin_id") admin_id: Int, @Field("token") token: String
+    ): Observable<BaseResponse<ArrayList<OrderDepartData>>>
+
+
+    /**
+     * 派单工单列表
+     * http://xx.com/api/grid/newcitizen/assignJobList
+     */
+    @FormUrlEncoded
+    @POST("api/grid/assign/jobDetail")
+    fun getOrderDetailData(
+        @Field("admin_id") admin_id: Int, @Field("token") token: String,
+        @Field("id") status: String,
+        @Field("datatype") page: String
+    ): Observable<BaseResponse<OrderDetailData>>
+
+    /**
+     * 派单工单列表
+     * http://xx.com/api/grid/newcitizen/assignJobList
+     */
+    @FormUrlEncoded
+    @POST("api/grid/assign/assignPerson")
+    fun sendOrderDetailData(
+        @Field("admin_id") admin_id: Int, @Field("token") token: String,
+        @Field("id") status: String,
+        @Field("datatype") datatype: String,
+        @Field("assign_id") assign_idBODY: String
+    ): Observable<BaseResponse<Object>>
+
+
+    /**
      * 流动人口列表
      * http://xx.com/api/grid/newcitizen/getFlowPeopleList
      */
@@ -508,7 +545,35 @@ interface ApiService {
 
     /**
      * 关爱人员统计列表
-     * http://xx.com/api/grid/newcitizen/getCareCount
+     * http://xx.com/api/grid/job/jobDetail
+     */
+    @FormUrlEncoded
+    @POST("api/grid/job/jobDetail")
+    fun getWorkDetailData(
+        @Field("admin_id") admin_id: String,
+        @Field("token") token: String,
+        @Field("id") id: String,
+        @Field("datatype") datatype: String
+    ): Observable<BaseResponse<WorkDetailData>>
+
+    /**
+     * 关爱人员统计列表
+     * http://xx.com/api/grid/job/jobDetail
+     */
+    @Multipart
+    @POST("api/grid/job/complete")
+    fun workDetailReportData(
+        @Part("admin_id") admin_id: RequestBody,
+        @Part("token") token: RequestBody,
+        @Part("id") id: RequestBody,
+        @Part("datatype") datatype: RequestBody,
+        @Part("handle_detail") handle_detail: RequestBody,
+        @Part image: ArrayList<MultipartBody.Part>
+    ): Observable<BaseResponse<Object>>
+
+    /**
+     * 关爱人员统计列表
+     * http://xx.com/api/grid/newcitizen/getCarePeopleList
      */
     @FormUrlEncoded
     @POST("api/grid/newcitizen/getCarePeopleList")

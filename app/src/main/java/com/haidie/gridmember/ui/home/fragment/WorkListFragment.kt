@@ -1,19 +1,17 @@
 package com.haidie.gridmember.ui.home.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.ImageView
-import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.haidie.gridmember.Constants
 import com.haidie.gridmember.R
 import com.haidie.gridmember.base.BaseFragment
 import com.haidie.gridmember.mvp.bean.OrderData
 import com.haidie.gridmember.mvp.bean.OrderListData
-import com.haidie.gridmember.mvp.contract.home.OrderContract
 import com.haidie.gridmember.mvp.contract.home.WorkContract
 import com.haidie.gridmember.mvp.presenter.home.WorkPresenter
-import com.haidie.gridmember.mvp.presenter.order.OrderPresenter
+import com.haidie.gridmember.ui.home.activity.WorkReportDetailActivity
 import com.haidie.gridmember.ui.home.adapter.OrderRecyclerViewAdapter
 import com.haidie.gridmember.utils.LogHelper
 import com.haidie.gridmember.utils.Preference
@@ -67,6 +65,13 @@ class WorkListFragment : BaseFragment(), WorkContract.View {
 
         orderAdapter!!.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
             LogHelper.d("----->" + mData[position].desc)
+
+            val intent = Intent(activity, WorkReportDetailActivity::class.java)
+            intent.putExtra(Constants.WORK_ID, "" + mData[position].id)
+            intent.putExtra(Constants.WORK_TYPE, "" + mData[position].datatype)
+            startActivity(intent)
+            activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
+
         }
 
         slOrder.setEnableHeaderTranslationContent(true)

@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50"
             android:background="@color/white"
-            android:hint="走访描述"
+            android:hint="处理完成说明"
             android:inputType="text"
             android:padding="@dimen/dp_10"/>
 
@@ -45,21 +45,9 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/add_pic_1x"/>
         </RelativeLayout>
-        <TextView
-                android:id="@+id/tvTime"
-                tools:text="2018年11月28日 15:11"
-                android:layout_width="wrap_content"
-                android:layout_marginStart="@dimen/dp_20"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"/>
+
     </LinearLayout>
-    <TextView
-            android:text="请拍摄带有门牌号的照片"
-            android:layout_width="match_parent"
-            android:background="@color/white"
-            android:padding="@dimen/dp_10"
-            android:layout_gravity="center_vertical"
-            android:layout_height="wrap_content"/>
+
     <TextView
             android:id="@+id/tvAddress"
             tools:text="洋河新区新城名苑小区"
@@ -75,35 +63,7 @@
             android:background="@color/background_color"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_10"/>
-    <LinearLayout
-            android:id="@+id/llEditHouseStatus"
-            android:background="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_45">
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/dp_15"
-                android:layout_weight="1"
-                android:textSize="@dimen/sp_14"
-                android:gravity="center_vertical"
-                android:text="房屋状态"/>
-        <TextView
-                android:id="@+id/tvHouseType"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/dp_15"
-                android:textSize="@dimen/sp_14"
-                android:gravity="center_vertical"
-                tools:text="房屋状态"/>
-        <ImageView
-                android:src="@drawable/ic_chevron_right_black_24dp"
-                android:contentDescription="@null"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="@dimen/dp_10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-    </LinearLayout>
+
     <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

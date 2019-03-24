@@ -68,6 +68,8 @@ object Constants {
     const val UNIT = "unit"
     const val SIZE = 10
     const val ID = "id"
+    const val WORK_ID = "work_id"
+    const val WORK_TYPE = "work_type"
     const val HOUSE_ID = "house_id"
     const val URL_KEY = "url"
     const val ANDROID = "android"
