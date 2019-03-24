@@ -7,6 +7,7 @@ import com.haidie.gridmember.R
 import com.haidie.gridmember.base.BaseActivity
 import com.haidie.gridmember.base.BaseFragment
 import com.haidie.gridmember.ui.home.fragment.FlowPeopleInfoListFragment
+import com.haidie.gridmember.ui.home.fragment.WorkListFragment
 import com.haidie.gridmember.ui.order.OrderListFragment
 
 import kotlinx.android.synthetic.main.common_toolbar.*
@@ -38,7 +39,7 @@ class WorkTaskInfoActivity : BaseActivity() {
 
     private fun initViewPagerAndTabLayout() {
         mTabDataList.forEachIndexed { index, _ ->
-            val fragment = OrderListFragment.getInstance(index + 1)
+            val fragment = WorkListFragment.getInstance(index + 1)
             mFragments.add(fragment)
         }
         viewPagerOrder.adapter = object : FragmentStatePagerAdapter(supportFragmentManager) {

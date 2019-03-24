@@ -91,7 +91,7 @@ class HomeFragment : BaseFragment(), HomeContract.View {
         adapter = HomeAdapter(R.layout.home_item, mData)
         recyclerView?.let {
             it.setHasFixedSize(true)
-            it.layoutManager = GridLayoutManager(activity, 2)
+            it.layoutManager = GridLayoutManager(activity, 1)
             it.adapter = adapter
         }
         adapter?.let {
