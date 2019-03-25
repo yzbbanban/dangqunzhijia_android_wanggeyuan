@@ -37,8 +37,12 @@ class WebViewDetailActivity : BaseActivity() {
     }
 
     override fun onPause() {
-        mAgentWeb!!.webLifeCycle.onPause()
-        super.onPause()
+        try {
+            mAgentWeb!!.webLifeCycle.onPause()
+            super.onPause()
+        } catch (e: Exception) {
+
+        }
     }
 
     override fun onResume() {

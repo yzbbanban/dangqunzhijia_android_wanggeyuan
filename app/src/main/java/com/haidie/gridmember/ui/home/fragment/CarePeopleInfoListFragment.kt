@@ -1,5 +1,6 @@
 package com.haidie.gridmember.ui.home.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
@@ -15,6 +16,7 @@ import com.haidie.gridmember.mvp.contract.home.CarePeopleListContract
 import com.haidie.gridmember.mvp.contract.home.FlowPeopleContract
 import com.haidie.gridmember.mvp.presenter.home.CarePeoplePresenter
 import com.haidie.gridmember.mvp.presenter.home.FlowPeoplePresenter
+import com.haidie.gridmember.ui.home.activity.CareReturnVisitActivity
 import com.haidie.gridmember.ui.home.activity.MessageNotificationActivity
 import com.haidie.gridmember.ui.home.activity.ReportManagementActivity
 import com.haidie.gridmember.ui.home.activity.ToDoListActivity
@@ -34,11 +36,11 @@ import kotlinx.android.synthetic.main.fragment_order_list.*
 class CarePeopleInfoListFragment : BaseFragment(), CarePeopleListContract.View {
 
 
-    private var token by Preference(Constants.TOKEN, Constants.EMPTY_STRING)
-    private var uid by Preference(Constants.UID, -1)
     private var mData = ArrayList<CarePeopleListData>()
     private var orderAdapter: CarePeopleRecyclerViewAdapter? = null
     private val mPresenter by lazy { CarePeoplePresenter() }
+    private var uid by Preference(Constants.UID, -1)
+    private var token by Preference(Constants.TOKEN, Constants.EMPTY_STRING)
     private var loginAccount by Preference(Constants.ACCOUNT, Constants.EMPTY_STRING)
     private var index = 0
     private var delivery_id = ""
@@ -63,6 +65,8 @@ class CarePeopleInfoListFragment : BaseFragment(), CarePeopleListContract.View {
             it.finishRefresh(1000)
         }
         orderAdapter = CarePeopleRecyclerViewAdapter(R.layout.flow_item_view_item, mData)
+        //admin_id: Int, token: String, status: String, is_children: String
+        mPresenter.getCarePeoData(uid, token, "" + index, delivery_id)
 
         rvOrder?.let {
             it.setHasFixedSize(true)
@@ -71,9 +75,15 @@ class CarePeopleInfoListFragment : BaseFragment(), CarePeopleListContract.View {
             it.adapter = orderAdapter
         }
         lazyLoad()
-        mPresenter.getCarePeoData(uid, token, "" + index, "" + delivery_id)
-        orderAdapter?.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
-            LogHelper.d("=====>  " + mData[position].name + "" + mData[position].block_no)
+
+        orderAdapter!!.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
+
+            LogHelper.d("del----> " + delivery_id)
+            val intent = Intent(activity, CareReturnVisitActivity::class.java)
+            intent.putExtra(Constants.ID, "" + mData[position].id)
+            startActivity(intent)
+            activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
+
         }
     }
 

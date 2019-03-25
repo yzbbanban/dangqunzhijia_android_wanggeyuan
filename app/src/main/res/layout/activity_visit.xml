@@ -55,6 +55,18 @@
                 android:layout_height="wrap_content"/>
     </LinearLayout>
 
+    <TextView
+            android:id="@+id/tvAddress"
+            tools:text="洋河新区新城名苑小区"
+            android:drawableStart="@drawable/ic_place_black_24dp"
+            android:drawablePadding="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            android:padding="@dimen/dp_10"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"/>
+
     <View
             android:background="@color/background_color"
             android:layout_width="match_parent"

@@ -167,14 +167,33 @@ class WorkReportDetailActivity : BaseActivity(), GetWorkDetailContract.View {
 
     override fun setWorkDetailData(workDetailData: WorkDetailData) {
         mData.add(0, workDetailData.img1)
-        mData.add(1, workDetailData.img2)
-        mData.add(2, workDetailData.img3)
-        mData.add(3, workDetailData.img4)
-        mData.add(4, workDetailData.img5)
-        mData.add(5, workDetailData.img6)
-        mData.add(6, workDetailData.img7)
-        mData.add(7, workDetailData.img8)
-        mData.add(8, workDetailData.img9)
+        if (!"".equals(workDetailData.img2)) {
+            mData.add(1, workDetailData.img2)
+        }
+        if (!"".equals(workDetailData.img3)) {
+            mData.add(2, workDetailData.img3)
+        }
+
+        if (!"".equals(workDetailData.img4)) {
+            mData.add(3, workDetailData.img4)
+        }
+        if (!"".equals(workDetailData.img5)) {
+            mData.add(4, workDetailData.img5)
+        }
+        if (!"".equals(workDetailData.img6)) {
+            mData.add(5, workDetailData.img6)
+        }
+        if (!"".equals(workDetailData.img7)) {
+            mData.add(6, workDetailData.img7)
+        }
+        if (!"".equals(workDetailData.img8)) {
+            mData.add(7, workDetailData.img8)
+        }
+        if (!"".equals(workDetailData.img9)) {
+            mData.add(8, workDetailData.img9)
+        }
+
+
         if (mData.isEmpty()) {
             showShort("暂无数据内容")
             mLayoutStatusView?.showEmpty()
@@ -182,14 +201,32 @@ class WorkReportDetailActivity : BaseActivity(), GetWorkDetailContract.View {
         }
 
         mDoData.add(0, workDetailData.handle_img1)
-        mDoData.add(1, workDetailData.handle_img2)
-        mDoData.add(2, workDetailData.handle_img3)
-        mDoData.add(3, workDetailData.handle_img4)
-        mDoData.add(4, workDetailData.handle_img5)
-        mDoData.add(5, workDetailData.handle_img6)
-        mDoData.add(6, workDetailData.handle_img7)
-        mDoData.add(7, workDetailData.handle_img8)
-        mDoData.add(8, workDetailData.handle_img9)
+        if (!"".equals(workDetailData.handle_img2)) {
+            mDoData.add(1, workDetailData.handle_img2)
+        }
+        if (!"".equals(workDetailData.handle_img3)) {
+            mDoData.add(2, workDetailData.handle_img3)
+
+        }
+        if (!"".equals(workDetailData.handle_img4)) {
+            mDoData.add(3, workDetailData.handle_img4)
+        }
+        if (!"".equals(workDetailData.handle_img5)) {
+            mDoData.add(4, workDetailData.handle_img5)
+        }
+        if (!"".equals(workDetailData.handle_img6)) {
+            mDoData.add(5, workDetailData.handle_img6)
+        }
+        if (!"".equals(workDetailData.handle_img7)) {
+            mDoData.add(6, workDetailData.handle_img7)
+        }
+        if (!"".equals(workDetailData.handle_img8)) {
+            mDoData.add(7, workDetailData.handle_img8)
+        }
+        if (!"".equals(workDetailData.handle_img9)) {
+            mDoData.add(8, workDetailData.handle_img9)
+        }
+
         if (mDoData.isEmpty()) {
             showShort("暂无数据内容")
             mLayoutStatusView?.showEmpty()
@@ -230,6 +267,7 @@ class WorkReportDetailActivity : BaseActivity(), GetWorkDetailContract.View {
             setBannerAnimation(Transformer.DepthPage)
             //设置指示器位置（当banner模式中有指示器时）
             setIndicatorGravity(BannerConfig.CENTER)
+            isAutoPlay(false)
             //banner设置方法全部调用完毕时最后调用
             start()
         }
@@ -240,6 +278,7 @@ class WorkReportDetailActivity : BaseActivity(), GetWorkDetailContract.View {
             setImageLoader(GlideImageLoader())
             //设置banner动画效果
             setBannerAnimation(Transformer.DepthPage)
+            isAutoPlay(false)
             //设置指示器位置（当banner模式中有指示器时）
             setIndicatorGravity(BannerConfig.CENTER)
             //banner设置方法全部调用完毕时最后调用
@@ -257,6 +296,7 @@ class WorkReportDetailActivity : BaseActivity(), GetWorkDetailContract.View {
             //设置图片集合
             setImages(arrayList)
             initBanner()
+            isAutoPlay(false)
             setOnBannerListener { position ->
             }
         }
@@ -272,6 +312,7 @@ class WorkReportDetailActivity : BaseActivity(), GetWorkDetailContract.View {
             //设置图片集合
             setImages(arrayList)
             initBanner()
+            isAutoPlay(false)
             setOnBannerListener { position ->
             }
         }

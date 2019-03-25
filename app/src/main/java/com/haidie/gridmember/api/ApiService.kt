@@ -117,6 +117,19 @@ interface ApiService {
     ): Observable<BaseResponse<Boolean>>
 
     /**
+     * 房间详情-签到打卡接口
+     * http://xxx.com/api/grid/house/visitSignIn
+     */
+    @Multipart
+    @POST("api/grid/house/visitSignIn")
+    fun getVisitData(
+        @Part("admin_id") admin_id: RequestBody, @Part("token") token: RequestBody,
+        @Part("id") id: RequestBody, @Part("type") type: RequestBody,
+        @Part("content") content: RequestBody, @Part("address") address: RequestBody,
+        @Part pic: MultipartBody.Part
+    ): Observable<BaseResponse<Boolean>>
+
+    /**
      * 人员信息采集-获取数据字典口
      * http://xxx.com/api/grid/newcitizen/getDic
      */

@@ -12,7 +12,6 @@ import com.haidie.gridmember.mvp.bean.OrderListData
 import com.haidie.gridmember.mvp.contract.home.OrderContract
 import com.haidie.gridmember.mvp.presenter.order.OrderPresenter
 import com.haidie.gridmember.ui.home.activity.OrderDetailActivity
-import com.haidie.gridmember.ui.home.activity.WorkDetailReportActivity
 import com.haidie.gridmember.ui.home.adapter.OrderRecyclerViewAdapter
 import com.haidie.gridmember.utils.LogHelper
 import com.haidie.gridmember.utils.Preference

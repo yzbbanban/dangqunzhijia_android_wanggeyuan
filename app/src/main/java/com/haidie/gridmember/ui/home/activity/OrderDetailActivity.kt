@@ -181,12 +181,8 @@ class OrderDetailActivity : BaseActivity(), GetOrderDetailContract.View, GetOrde
             dPresenter.getOrderDepartData(uid, token)
         }
 
-        tvDoDepart.setOnClickListener { _ ->
-            dPresenter.getOrderDepartData(uid, token)
-        }
-
         tvDoPeople.setText("请选择")
-        tvDoDepart.setText("请选择")
+
     }
 
     override fun showError(msg: String, errorCode: Int) {
@@ -196,14 +192,31 @@ class OrderDetailActivity : BaseActivity(), GetOrderDetailContract.View, GetOrde
 
     override fun setOrderDetailData(orderDetailData: OrderDetailData) {
         mData.add(0, orderDetailData.img1)
-        mData.add(1, orderDetailData.img2)
-        mData.add(2, orderDetailData.img3)
-        mData.add(3, orderDetailData.img4)
-        mData.add(4, orderDetailData.img5)
-        mData.add(5, orderDetailData.img6)
-        mData.add(6, orderDetailData.img7)
-        mData.add(7, orderDetailData.img8)
-        mData.add(8, orderDetailData.img9)
+        if (!"".equals(orderDetailData.img2)) {
+            mData.add(1, orderDetailData.img2)
+        }
+        if (!"".equals(orderDetailData.img3)) {
+            mData.add(2, orderDetailData.img3)
+        }
+
+        if (!"".equals(orderDetailData.img4)) {
+            mData.add(3, orderDetailData.img4)
+        }
+        if (!"".equals(orderDetailData.img5)) {
+            mData.add(4, orderDetailData.img5)
+        }
+        if (!"".equals(orderDetailData.img6)) {
+            mData.add(5, orderDetailData.img6)
+        }
+        if (!"".equals(orderDetailData.img7)) {
+            mData.add(6, orderDetailData.img7)
+        }
+        if (!"".equals(orderDetailData.img8)) {
+            mData.add(7, orderDetailData.img8)
+        }
+        if (!"".equals(orderDetailData.img9)) {
+            mData.add(8, orderDetailData.img9)
+        }
         if (mData.isEmpty()) {
             showShort("暂无数据内容")
             mLayoutStatusView?.showEmpty()
@@ -302,6 +315,7 @@ class OrderDetailActivity : BaseActivity(), GetOrderDetailContract.View, GetOrde
             //设置图片集合
             setImages(arrayList)
             initBanner()
+            isAutoPlay(false)
             setOnBannerListener { position ->
             }
         }
