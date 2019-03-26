@@ -18,6 +18,7 @@ object Constants {
     const val TOKEN = "token"
     const val ACCOUNT = "account"
     const val PASSWORD = "password"
+    const val GROUP_ID = "group_id"
     const val DEVICE_ID = "device_id"
     const val LOGIN_STATUS = "login_status"
     const val USERNAME = "username"

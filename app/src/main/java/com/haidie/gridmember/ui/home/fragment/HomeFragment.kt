@@ -50,6 +50,7 @@ class HomeFragment : BaseFragment(), HomeContract.View {
     private var mTitle: String? = null
     private var isRefresh = false
     private var uid by Preference(Constants.UID, -1)
+    private var group_id by Preference(Constants.GROUP_ID, -1)
     private var token by Preference(Constants.TOKEN, Constants.EMPTY_STRING)
     private val mPresenter by lazy { HomePresenter() }
     private val icons = arrayOf(
@@ -110,7 +111,11 @@ class HomeFragment : BaseFragment(), HomeContract.View {
 //                }
                 //工作任务
                 titles[0] -> {
-                    toActivity(WorkTaskInfoActivity::class.java)
+                    if (group_id == 34) {
+                        toActivity(WorkTaskInfoActivity::class.java)
+                    } else {
+                        showShort("无权限")
+                    }
                 }
                 //12月上报管理
                 titles[1] -> {

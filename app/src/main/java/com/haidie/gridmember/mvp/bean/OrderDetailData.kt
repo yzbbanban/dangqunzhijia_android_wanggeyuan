@@ -14,6 +14,7 @@ class OrderDetailData(
     val handle_status: Int,
     val create_time: String,
     val address: String,
+    val report_avatar: String,
     val img1: String,
     val img2: String,
     val img3: String,

@@ -227,9 +227,11 @@ class OrderDetailActivity : BaseActivity(), GetOrderDetailContract.View, GetOrde
         tvWorkReporter.setText(orderDetailData.reporter_name)
         tvWorkReporterTel.setText(orderDetailData.reporter_phone)
         var status = "未派单"
-        if (orderDetailData.handle_status == 3) {
+        if (orderDetailData.handle_status == 1) {
             status = "已派单"
             flSubmit.setVisibility(View.GONE)
+            llDoPeople.setVisibility(View.GONE)
+            llDoDepart.setVisibility(View.GONE)
         } else {
         }
         setBannerData()
@@ -286,9 +288,9 @@ class OrderDetailActivity : BaseActivity(), GetOrderDetailContract.View, GetOrde
         mPvOptions =
             OptionsPickerBuilder(this@OrderDetailActivity, OnOptionsSelectListener { options1, options2, _, _ ->
                 var ai = data2.get(options1).get(options2)
-                tvDoPeople.setText(data1.get(options1))
-                tvDoDepart.setText(ai)
-                assign_id = ai.split(":")[0]
+                tvDoPeople.setText(ai.split(":")[0])
+                tvDoDepart.setText(data1.get(options1))
+                assign_id = ai.split(":")[1]
 
             }).build()
 
@@ -302,6 +304,7 @@ class OrderDetailActivity : BaseActivity(), GetOrderDetailContract.View, GetOrde
 
     override fun setOrderResultData(obj: Object) {
         showShort("提交成功")
+        finish()
     }
 
 

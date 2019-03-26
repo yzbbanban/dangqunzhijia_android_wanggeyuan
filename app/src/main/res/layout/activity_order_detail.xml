@@ -178,6 +178,7 @@
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/llDoDepart"
                     android:padding="@dimen/dp_5"
                     android:background="@color/white"
                     android:layout_width="match_parent"
@@ -203,6 +204,7 @@
 
 
             <LinearLayout
+                    android:id="@+id/llDoPeople"
                     android:padding="@dimen/dp_5"
                     android:background="@color/white"
                     android:layout_width="match_parent"
