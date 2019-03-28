@@ -19,7 +19,7 @@ class BlockListAdapter(layoutResId: Int, data: List<BlockInfoData>) :
         helper!!.getView<TextView>(R.id.tvRoomNoUsername).text = "${item!!.title}栋"
         val rlBackGround = helper!!.getView<RelativeLayout>(R.id.rlBackGround)
         //已访问
-        if (item.is_visist == 1) {
+        if (item!!.is_visist == 1) {
             rlBackGround.background = ContextCompat.getDrawable(mContext, R.color.color_69)
         }
 

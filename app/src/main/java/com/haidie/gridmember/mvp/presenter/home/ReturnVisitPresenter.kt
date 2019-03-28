@@ -24,6 +24,8 @@ class ReturnVisitPresenter : BasePresenter<ReturnVisitContract.View>(), ReturnVi
         type: RequestBody,
         content: RequestBody,
         address: RequestBody,
+        block_id: RequestBody,
+        house_id: RequestBody,
         pic: MultipartBody.Part
     ) {
         val disposable = RetrofitManager.service.getVisitData(

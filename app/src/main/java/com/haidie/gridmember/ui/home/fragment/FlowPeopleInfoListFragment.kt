@@ -76,6 +76,8 @@ class FlowPeopleInfoListFragment : BaseFragment(), FlowPeopleContract.View {
                     //跳转到回访登记页面
                     val intent = Intent(activity, ReturnVisitActivity::class.java)
                     intent.putExtra(Constants.ID, mData[position].id)
+                    intent.putExtra(Constants.BLOCK_ID, mData[position].block_id)
+                    intent.putExtra(Constants.HOURSE_ID, mData[position].apartment_id)
                     startActivity(intent)
                     activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
                 }

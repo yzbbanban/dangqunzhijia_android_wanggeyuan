@@ -38,6 +38,8 @@ class ReturnVisitActivity : BaseActivity(), ReturnVisitContract.View {
     private var mLocationClient: LocationClient? = null
     private var addressStr: String? = null
     private var mId: Int? = null
+    private var blockId: String? = null
+    private var hourseId: String? = null
     private var selectList = mutableListOf<LocalMedia>()
     private val type: String = "2"   //拜访类型区分,填1表示居民拜访,2表示监管回访
     private var uid by Preference(Constants.UID, -1)
@@ -47,6 +49,8 @@ class ReturnVisitActivity : BaseActivity(), ReturnVisitContract.View {
 
     override fun initData() {
         mId = intent.getIntExtra(Constants.ID, -1)
+        blockId = intent.getStringExtra(Constants.BLOCK_ID)
+        hourseId = intent.getStringExtra(Constants.HOURSE_ID)
         mOption = LocationClientOption()
         mOption?.apply {
             locationMode = LocationClientOption.LocationMode.Hight_Accuracy
@@ -193,6 +197,8 @@ class ReturnVisitActivity : BaseActivity(), ReturnVisitContract.View {
                 toRequestBody("" + 3),
                 toRequestBody(content),
                 toRequestBody(tvAddress.text.toString()),
+                toRequestBody(blockId!!),
+                toRequestBody(hourseId!!),
                 part
             )
         }

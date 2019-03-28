@@ -18,7 +18,8 @@ class ReturnVisitContract {
     interface Presenter : IPresenter<View> {
         fun getReturnVisitData(
             admin_id: RequestBody, token: RequestBody, id: RequestBody, type: RequestBody,
-            content: RequestBody, address: RequestBody, pic: MultipartBody.Part
+            content: RequestBody, address: RequestBody,block_id:RequestBody,
+            house_id:RequestBody, pic: MultipartBody.Part
         )
     }
 }

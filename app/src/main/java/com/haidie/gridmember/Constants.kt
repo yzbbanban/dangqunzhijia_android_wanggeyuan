@@ -77,6 +77,8 @@ object Constants {
     const val ADDRESS_STR = "address_Str"
     const val IMAGE = "image/*"
     const val PIC = "pic"
+    const val BLOCK_ID = "blockId"
+    const val HOURSE_ID = "hourseId"
     const val PIC_PNG = "pic.png"
     const val MULTIPART_FORM_DATA = "multipart/form-data"
     //    图片路径

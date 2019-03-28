@@ -126,6 +126,7 @@ interface ApiService {
         @Part("admin_id") admin_id: RequestBody, @Part("token") token: RequestBody,
         @Part("id") id: RequestBody, @Part("type") type: RequestBody,
         @Part("content") content: RequestBody, @Part("address") address: RequestBody,
+        @Part("block_id") block_id: RequestBody, @Part("house_id") house_id: RequestBody,
         @Part pic: MultipartBody.Part
     ): Observable<BaseResponse<Boolean>>
 
