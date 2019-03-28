@@ -81,6 +81,8 @@ class CarePeopleInfoListFragment : BaseFragment(), CarePeopleListContract.View {
             LogHelper.d("del----> " + delivery_id)
             val intent = Intent(activity, CareReturnVisitActivity::class.java)
             intent.putExtra(Constants.ID, "" + mData[position].id)
+            intent.putExtra(Constants.BLOCK_ID, mData[position].block_id)
+            intent.putExtra(Constants.HOURSE_ID, mData[position].apartment_id)
             startActivity(intent)
             activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
 

@@ -38,6 +38,8 @@ class CareReturnVisitActivity : BaseActivity(), ReturnVisitContract.View {
     private var mLocationClient: LocationClient? = null
     private var addressStr: String? = null
     private var mId: Int? = null
+    private var blockId: String? = null
+    private var hourseId: String? = null
     private var selectList = mutableListOf<LocalMedia>()
     private var uid by Preference(Constants.UID, -1)
     private var token by Preference(Constants.TOKEN, Constants.EMPTY_STRING)
@@ -46,6 +48,8 @@ class CareReturnVisitActivity : BaseActivity(), ReturnVisitContract.View {
 
     override fun initData() {
         mId = intent.getIntExtra(Constants.ID, -1)
+        blockId = intent.getStringExtra(Constants.BLOCK_ID)
+        hourseId = intent.getStringExtra(Constants.HOURSE_ID)
         mOption = LocationClientOption()
         mOption?.apply {
             locationMode = LocationClientOption.LocationMode.Hight_Accuracy
@@ -192,6 +196,8 @@ class CareReturnVisitActivity : BaseActivity(), ReturnVisitContract.View {
                 toRequestBody("" + 4),
                 toRequestBody(content),
                 toRequestBody(tvAddress.text.toString()),
+                toRequestBody(blockId!!),
+                toRequestBody(hourseId!!),
                 part
             )
         }
