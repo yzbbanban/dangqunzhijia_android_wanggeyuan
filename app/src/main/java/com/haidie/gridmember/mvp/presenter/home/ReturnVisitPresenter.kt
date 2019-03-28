@@ -29,7 +29,7 @@ class ReturnVisitPresenter : BasePresenter<ReturnVisitContract.View>(), ReturnVi
         pic: MultipartBody.Part
     ) {
         val disposable = RetrofitManager.service.getVisitData(
-            admin_id, token, id, type,content, address,pic)
+            admin_id, token, id, type,content, address,block_id,house_id,pic)
             .compose(SchedulerUtils.ioToMain())
             .compose(RxUtils.handleResult())
             .subscribeWith(object : BaseObserver<Boolean>("提交失败") {
