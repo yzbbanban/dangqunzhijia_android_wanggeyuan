@@ -13,5 +13,6 @@ data class GridMemberData(val userinfo: UserInfo) {
         val avatar: String,
         val token: String,
         val admin_id: Int,
+        val group_id: Int,
         val mobile: String)
 }

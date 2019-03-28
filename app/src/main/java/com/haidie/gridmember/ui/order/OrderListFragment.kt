@@ -1,5 +1,6 @@
 package com.haidie.gridmember.ui.order
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -10,6 +11,7 @@ import com.haidie.gridmember.mvp.bean.OrderData
 import com.haidie.gridmember.mvp.bean.OrderListData
 import com.haidie.gridmember.mvp.contract.home.OrderContract
 import com.haidie.gridmember.mvp.presenter.order.OrderPresenter
+import com.haidie.gridmember.ui.home.activity.OrderDetailActivity
 import com.haidie.gridmember.ui.home.adapter.OrderRecyclerViewAdapter
 import com.haidie.gridmember.utils.LogHelper
 import com.haidie.gridmember.utils.Preference
@@ -63,6 +65,13 @@ class OrderListFragment : BaseFragment(), OrderContract.View {
 
         orderAdapter!!.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
             LogHelper.d("----->" + mData[position].desc)
+
+            val intent = Intent(activity, OrderDetailActivity::class.java)
+            intent.putExtra(Constants.WORK_ID, "" + mData[position].id)
+            intent.putExtra(Constants.WORK_TYPE, "" + mData[position].datatype)
+            startActivity(intent)
+            activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
+
         }
 
         slOrder.setEnableHeaderTranslationContent(true)

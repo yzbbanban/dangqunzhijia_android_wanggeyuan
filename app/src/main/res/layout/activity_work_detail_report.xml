@@ -5,13 +5,12 @@
               android:layout_height="match_parent">
 
     <include layout="@layout/common_toolbar"/>
-
     <EditText
             android:id="@+id/etContent"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50"
             android:background="@color/white"
-            android:hint="回访说明"
+            android:hint="处理完成说明"
             android:inputType="text"
             android:padding="@dimen/dp_10"/>
 
@@ -46,13 +45,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/add_pic_1x"/>
         </RelativeLayout>
-        <TextView
-                android:id="@+id/tvTime"
-                tools:text="2018年11月28日 15:11"
-                android:layout_width="wrap_content"
-                android:layout_marginStart="@dimen/dp_20"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
     <TextView
@@ -66,7 +59,6 @@
             android:padding="@dimen/dp_10"
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"/>
-
     <View
             android:background="@color/background_color"
             android:layout_width="match_parent"

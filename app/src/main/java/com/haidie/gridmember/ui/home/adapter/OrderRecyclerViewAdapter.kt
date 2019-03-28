@@ -41,7 +41,7 @@ class OrderRecyclerViewAdapter(layoutResId: Int, data: ArrayList<OrderListData>?
         }
 
         tvReporter.setOnClickListener { position ->
-            val mobile = item!!.reporter_id
+            val mobile = item!!.reporter_phone
             if (mobile!!.isNotEmpty()) {
                 call(mobile)
             }

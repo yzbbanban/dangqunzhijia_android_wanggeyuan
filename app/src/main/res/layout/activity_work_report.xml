@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50"
             android:background="@color/white"
-            android:hint="回访说明"
+            android:hint="处理完成说明"
             android:inputType="text"
             android:padding="@dimen/dp_10"/>
 
@@ -39,38 +39,15 @@
                     android:layout_alignParentEnd="true"
                     android:src="@drawable/delete_pic_1x"/>
             <ImageView
-                    android:id="@+id/ivAddPic"
+                    android:id="@+id/ivReportPic"
                     android:contentDescription="@null"
                     android:layout_width="@dimen/dp_100"
                     android:layout_height="@dimen/dp_100"
                     android:scaleType="fitCenter"
                     android:src="@drawable/add_pic_1x"/>
         </RelativeLayout>
-        <TextView
-                android:id="@+id/tvTime"
-                tools:text="2018年11月28日 15:11"
-                android:layout_width="wrap_content"
-                android:layout_marginStart="@dimen/dp_20"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"/>
+
     </LinearLayout>
-
-    <TextView
-            android:id="@+id/tvAddress"
-            tools:text="洋河新区新城名苑小区"
-            android:drawableStart="@drawable/ic_place_black_24dp"
-            android:drawablePadding="@dimen/dp_5"
-            android:layout_width="match_parent"
-            android:gravity="center_vertical"
-            android:background="@color/white"
-            android:padding="@dimen/dp_10"
-            android:layout_gravity="center_vertical"
-            android:layout_height="wrap_content"/>
-
-    <View
-            android:background="@color/background_color"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_10"/>
 
     <FrameLayout
             android:layout_width="match_parent"
@@ -87,7 +64,7 @@
                 android:background="@drawable/login_dialog"
                 android:visibility="gone"/>
         <TextView
-                android:id="@+id/tvSubmitCheck"
+                android:id="@+id/tvSubmitReport"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_36"
                 android:background="@drawable/login_button_bg"

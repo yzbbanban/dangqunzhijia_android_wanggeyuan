@@ -1,14 +1,17 @@
 package com.haidie.gridmember.ui.home.activity
 
+import android.content.Intent
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.View
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.haidie.gridmember.Constants
 import com.haidie.gridmember.R
 import com.haidie.gridmember.base.BaseActivity
 import com.haidie.gridmember.base.BaseFragment
 import com.haidie.gridmember.ui.home.fragment.CarePeopleInfoListFragment
 import com.haidie.gridmember.ui.home.fragment.FlowPeopleInfoListFragment
+import com.haidie.gridmember.utils.LogHelper
 
 import kotlinx.android.synthetic.main.common_toolbar.*
 import kotlinx.android.synthetic.main.fragment_order.*

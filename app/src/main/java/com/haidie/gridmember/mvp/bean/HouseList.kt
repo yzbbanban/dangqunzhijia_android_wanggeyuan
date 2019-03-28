@@ -16,6 +16,7 @@ data class HouseList(
         val num: String,
         val unit: String,
         val roomNo: String,
-        val username: String?
+        val username: String?,
+        val is_visist: Int
     )
 }

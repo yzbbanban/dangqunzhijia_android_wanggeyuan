@@ -1,5 +1,6 @@
 package com.haidie.gridmember.ui.home.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
@@ -11,13 +12,14 @@ import com.haidie.gridmember.mvp.bean.FlowPeopleData
 import com.haidie.gridmember.mvp.bean.FlowPeopleListData
 import com.haidie.gridmember.mvp.contract.home.FlowPeopleContract
 import com.haidie.gridmember.mvp.presenter.home.FlowPeoplePresenter
-import com.haidie.gridmember.ui.home.activity.MessageNotificationActivity
-import com.haidie.gridmember.ui.home.activity.ReportManagementActivity
-import com.haidie.gridmember.ui.home.activity.ToDoListActivity
+import com.haidie.gridmember.ui.home.activity.*
 import com.haidie.gridmember.ui.home.adapter.FlowPeopleRecyclerViewAdapter
 import com.haidie.gridmember.utils.LogHelper
 import com.haidie.gridmember.utils.Preference
 import com.haidie.gridmember.view.RecyclerViewDividerItemDecoration
+import com.haidie.gridmember.view.RuntimeRationale
+import com.yanzhenjie.permission.AndPermission
+import com.yanzhenjie.permission.Permission
 import kotlinx.android.synthetic.main.common_toolbar.*
 import kotlinx.android.synthetic.main.fragment_order_list.*
 
@@ -64,8 +66,23 @@ class FlowPeopleInfoListFragment : BaseFragment(), FlowPeopleContract.View {
         }
         lazyLoad()
         mPresenter.getFlowPeoData(uid, token, "" + index)
-        orderAdapter?.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
-            LogHelper.d("=====>  "+mData[position].name+""+mData[position].block_no)
+
+        orderAdapter!!.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
+            AndPermission.with(this)
+                .runtime()
+                .permission(Permission.ACCESS_FINE_LOCATION)
+                .rationale(RuntimeRationale())
+                .onGranted {
+                    //跳转到回访登记页面
+                    val intent = Intent(activity, ReturnVisitActivity::class.java)
+                    intent.putExtra(Constants.ID, mData[position].id)
+                    intent.putExtra(Constants.BLOCK_ID, mData[position].block_id)
+                    intent.putExtra(Constants.HOURSE_ID, mData[position].apartment_id)
+                    startActivity(intent)
+                    activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
+                }
+                .start()
+
         }
     }
 

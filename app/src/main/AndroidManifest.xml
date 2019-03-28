@@ -227,6 +227,26 @@
                 android:name=".ui.home.activity.WorkTaskInfoActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.WorkReportDetailActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.WorkDetailReportActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.OrderDetailActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.ReturnVisitActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
+        <activity
+                android:name=".ui.home.activity.CareReturnVisitActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/TranslucentTheme"/>
     </application>
 
 </manifest>

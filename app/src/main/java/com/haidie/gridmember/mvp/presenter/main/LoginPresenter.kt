@@ -17,7 +17,7 @@ import com.haidie.gridmember.utils.Preference
  * description
  */
 class LoginPresenter : BasePresenter<LoginContract.View>(),
-    LoginContract.Presenter{
+    LoginContract.Presenter {
     private var loginAccount by Preference(Constants.ACCOUNT, Constants.EMPTY_STRING)
     private var loginPassword by Preference(Constants.PASSWORD, Constants.EMPTY_STRING)
     private var loginStatus by Preference(Constants.LOGIN_STATUS, false)
@@ -26,7 +26,14 @@ class LoginPresenter : BasePresenter<LoginContract.View>(),
     private var mobile by Preference(Constants.MOBILE, Constants.EMPTY_STRING)
     private var uid by Preference(Constants.UID, -1)
     private var token by Preference(Constants.TOKEN, Constants.EMPTY_STRING)
-    override fun getLoginData(username: String, password: String,app_type: String, device_id: String,device_type: String) {
+    private var group_id by Preference(Constants.GROUP_ID, -1)
+    override fun getLoginData(
+        username: String,
+        password: String,
+        app_type: String,
+        device_id: String,
+        device_type: String
+    ) {
         checkViewAttached()
         val disposable = RetrofitManager.service.getLoginData(username, password, app_type, device_id, device_type)
             .compose(SchedulerUtils.ioToMain())
@@ -38,13 +45,15 @@ class LoginPresenter : BasePresenter<LoginContract.View>(),
                     loginStatus = true
                     uid = data.userinfo.admin_id
                     token = data.userinfo.token
+                    group_id = data.userinfo.group_id
                     avatar = data.userinfo.avatar
                     nickname = data.userinfo.nickname
                     mobile = data.userinfo.mobile
-                    mRootView?.setLoginResult(true,"")
+                    mRootView?.setLoginResult(true, "")
                 }
+
                 override fun onFail(e: ApiException) {
-                    mRootView?.setLoginResult(false,e.mMessage)
+                    mRootView?.setLoginResult(false, e.mMessage)
                 }
             })
         addSubscription(disposable)

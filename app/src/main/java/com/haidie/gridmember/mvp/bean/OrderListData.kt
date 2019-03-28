@@ -19,7 +19,8 @@ data class OrderListData(
     val handle_time: String?,
     val create_time: String?,
     val complete_time: String?,
-    val datatype: String?
+    val datatype: String?,
+    val reporter_phone: String?
 
 )
 

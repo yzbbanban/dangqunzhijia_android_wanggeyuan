@@ -50,7 +50,7 @@ class CaringObjectActivity : BaseActivity(), GetCareContract.View {
         adapter = GetCareAdapter(R.layout.personnel_supervision_item, mData)
         adapter!!.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
             val intent = Intent(this, CarePeopleInfoActivity::class.java)
-            intent.putExtra(Constants.TEXT, adapter!!.data[position].delivery_id)
+            intent.putExtra(Constants.TEXT, "" + adapter!!.data[position].delivery_id)
             intent.putExtra(Constants.NAME, adapter!!.data[position].name)
             startActivity(intent)
             overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
