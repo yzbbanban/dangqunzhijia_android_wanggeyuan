@@ -65,23 +65,28 @@ class FlowPeopleInfoListFragment : BaseFragment(), FlowPeopleContract.View {
             it.adapter = orderAdapter
         }
         lazyLoad()
-        mPresenter.getFlowPeoData(uid, token, "" + index)
 
         orderAdapter!!.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
-            AndPermission.with(this)
-                .runtime()
-                .permission(Permission.ACCESS_FINE_LOCATION)
-                .rationale(RuntimeRationale())
-                .onGranted {
-                    //跳转到回访登记页面
-                    val intent = Intent(activity, ReturnVisitActivity::class.java)
-                    intent.putExtra(Constants.ID, mData[position].id)
-                    intent.putExtra(Constants.BLOCK_ID, mData[position].block_id)
-                    intent.putExtra(Constants.HOURSE_ID, mData[position].apartment_id)
-                    startActivity(intent)
-                    activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
-                }
-                .start()
+
+            if (index == 2) {
+//                showShort("已回访")
+            } else {
+
+                AndPermission.with(this)
+                    .runtime()
+                    .permission(Permission.ACCESS_FINE_LOCATION)
+                    .rationale(RuntimeRationale())
+                    .onGranted {
+                        //跳转到回访登记页面
+                        val intent = Intent(activity, ReturnVisitActivity::class.java)
+                        intent.putExtra(Constants.ID, mData[position].id)
+                        intent.putExtra(Constants.BLOCK_ID, mData[position].block_id)
+                        intent.putExtra(Constants.HOURSE_ID, mData[position].apartment_id)
+                        startActivity(intent)
+                        activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
+                    }
+                    .start()
+            }
 
         }
     }
@@ -101,6 +106,7 @@ class FlowPeopleInfoListFragment : BaseFragment(), FlowPeopleContract.View {
 
 
     override fun lazyLoad() {
+        mPresenter.getFlowPeoData(uid, token, "" + index)
 //        var data1 = FlowPeopleListData(1, "banban1", 12, 1111, 111211)
 //        var data2 = FlowPeopleListData(2, "banban2", 22, 2121, 22322)
 //        var data3 = FlowPeopleListData(3, "banban3", 33, 3131, 333433)

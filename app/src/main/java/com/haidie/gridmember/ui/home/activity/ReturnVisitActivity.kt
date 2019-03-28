@@ -235,7 +235,7 @@ class ReturnVisitActivity : BaseActivity(), ReturnVisitContract.View {
     override fun start() {}
     override fun setReturnVisitData(isSuccess: Boolean, msg: String) {
         if (isSuccess) {
-            showShort("提交成功")
+            showShort("回访完成")
             finish()
         } else {
             showShort(msg)

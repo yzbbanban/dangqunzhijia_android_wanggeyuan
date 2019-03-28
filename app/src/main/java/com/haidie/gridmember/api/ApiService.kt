@@ -117,11 +117,11 @@ interface ApiService {
     ): Observable<BaseResponse<Boolean>>
 
     /**
-     * 房间详情-签到打卡接口
+     * 关爱、流动人口回访
      * http://xxx.com/api/grid/house/visitSignIn
      */
     @Multipart
-    @POST("api/grid/house/visitSignIn")
+    @POST("api/grid/newcitizen/visitSignIn")
     fun getVisitData(
         @Part("admin_id") admin_id: RequestBody, @Part("token") token: RequestBody,
         @Part("id") id: RequestBody, @Part("type") type: RequestBody,

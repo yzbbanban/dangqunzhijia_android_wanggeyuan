@@ -66,7 +66,6 @@ class CarePeopleInfoListFragment : BaseFragment(), CarePeopleListContract.View {
         }
         orderAdapter = CarePeopleRecyclerViewAdapter(R.layout.flow_item_view_item, mData)
         //admin_id: Int, token: String, status: String, is_children: String
-        mPresenter.getCarePeoData(uid, token, "" + index, delivery_id)
 
         rvOrder?.let {
             it.setHasFixedSize(true)
@@ -77,12 +76,15 @@ class CarePeopleInfoListFragment : BaseFragment(), CarePeopleListContract.View {
         lazyLoad()
 
         orderAdapter!!.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
-
-            LogHelper.d("del----> " + delivery_id)
-            val intent = Intent(activity, CareReturnVisitActivity::class.java)
-            intent.putExtra(Constants.ID, "" + mData[position].id)
-            startActivity(intent)
-            activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
+            if (index == 1) {
+                LogHelper.d("del----> " + delivery_id)
+                val intent = Intent(activity, CareReturnVisitActivity::class.java)
+                intent.putExtra(Constants.ID, "" + mData[position].id)
+                intent.putExtra(Constants.BLOCK_ID, mData[position].block_id)
+                intent.putExtra(Constants.HOURSE_ID, mData[position].apartment_id)
+                startActivity(intent)
+                activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
+            }
 
         }
     }
@@ -103,6 +105,8 @@ class CarePeopleInfoListFragment : BaseFragment(), CarePeopleListContract.View {
 
 
     override fun lazyLoad() {
+        mPresenter.getCarePeoData(uid, token, "" + index, delivery_id)
+
 //        var data1 = FlowPeopleListData(1, "banban1", 12, 1111, 111211)
 //        var data2 = FlowPeopleListData(2, "banban2", 22, 2121, 22322)
 //        var data3 = FlowPeopleListData(3, "banban3", 33, 3131, 333433)
