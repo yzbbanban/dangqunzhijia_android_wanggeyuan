@@ -3,6 +3,7 @@ package com.haidie.gridmember.ui.home.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.haidie.gridmember.Constants
@@ -69,7 +70,7 @@ class CarePeopleInfoListFragment : BaseFragment(), CarePeopleListContract.View {
 
         rvOrder?.let {
             it.setHasFixedSize(true)
-            it.layoutManager = LinearLayoutManager(activity)
+            it.layoutManager = LinearLayoutManager(activity) as RecyclerView.LayoutManager?
             it.addItemDecoration(RecyclerViewDividerItemDecoration(activity))
             it.adapter = orderAdapter
         }
@@ -79,9 +80,9 @@ class CarePeopleInfoListFragment : BaseFragment(), CarePeopleListContract.View {
             if (index == 1) {
                 LogHelper.d("del----> " + delivery_id)
                 val intent = Intent(activity, CareReturnVisitActivity::class.java)
-                intent.putExtra(Constants.ID, "" + mData[position].id)
+                intent.putExtra(Constants.ID, mData[position].id)
                 intent.putExtra(Constants.BLOCK_ID, mData[position].block_id)
-                intent.putExtra(Constants.HOURSE_ID, mData[position].apartment_id)
+                intent.putExtra(Constants.HOURSE_ID, mData[position].house_id)
                 startActivity(intent)
                 activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
             }

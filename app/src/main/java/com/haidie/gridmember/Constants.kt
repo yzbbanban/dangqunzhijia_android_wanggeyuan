@@ -20,6 +20,7 @@ object Constants {
     const val PASSWORD = "password"
     const val GROUP_ID = "group_id"
     const val DEVICE_ID = "device_id"
+    const val AUTH_TYPE = "auth_type"
     const val LOGIN_STATUS = "login_status"
     const val USERNAME = "username"
     const val IS_TO_DO_LIST = "istodolist"

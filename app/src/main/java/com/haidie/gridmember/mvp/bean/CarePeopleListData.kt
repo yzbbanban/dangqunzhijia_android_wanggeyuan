@@ -13,6 +13,7 @@ data class CarePeopleListData(
     val apartment_no: Int,
     val avatar: String?,
     val block_id: String?,
-    val apartment_id: String?
+    val apartment_id: String?,
+    val house_id: String?
 )
 

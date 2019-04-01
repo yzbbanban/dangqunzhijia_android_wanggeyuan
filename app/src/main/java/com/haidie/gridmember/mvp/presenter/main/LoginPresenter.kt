@@ -27,6 +27,7 @@ class LoginPresenter : BasePresenter<LoginContract.View>(),
     private var uid by Preference(Constants.UID, -1)
     private var token by Preference(Constants.TOKEN, Constants.EMPTY_STRING)
     private var group_id by Preference(Constants.GROUP_ID, -1)
+    private var auth_type by Preference(Constants.AUTH_TYPE, -1)
     override fun getLoginData(
         username: String,
         password: String,
@@ -46,6 +47,7 @@ class LoginPresenter : BasePresenter<LoginContract.View>(),
                     uid = data.userinfo.admin_id
                     token = data.userinfo.token
                     group_id = data.userinfo.group_id
+                    auth_type = data.userinfo.auth_type
                     avatar = data.userinfo.avatar
                     nickname = data.userinfo.nickname
                     mobile = data.userinfo.mobile

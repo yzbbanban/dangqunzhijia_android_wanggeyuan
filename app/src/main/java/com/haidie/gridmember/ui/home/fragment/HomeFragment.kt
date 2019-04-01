@@ -51,6 +51,7 @@ class HomeFragment : BaseFragment(), HomeContract.View {
     private var isRefresh = false
     private var uid by Preference(Constants.UID, -1)
     private var group_id by Preference(Constants.GROUP_ID, -1)
+    private var auth_type by Preference(Constants.AUTH_TYPE, -1)
     private var token by Preference(Constants.TOKEN, Constants.EMPTY_STRING)
     private val mPresenter by lazy { HomePresenter() }
     private val icons = arrayOf(
@@ -104,23 +105,26 @@ class HomeFragment : BaseFragment(), HomeContract.View {
 
         adapter?.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
             val title = adapter!!.data[position].title
-            when (title) {
+            if (auth_type == 3) {
+                if (titles[0].equals(title)) {
+                    toActivity(WorkTaskInfoActivity::class.java)
+                } else {
+                    showShort("无权限")
+                }
+            } else {
+                when (title) {
 //                12月待办事项
 //                titles[0] -> {
 //                    toActivity(ToDoListActivity::class.java)
 //                }
-                //工作任务
-                titles[0] -> {
-                    if (group_id == 34) {
+                    //工作任务
+                    titles[0] -> {
                         toActivity(WorkTaskInfoActivity::class.java)
-                    } else {
-                        showShort("无权限")
                     }
-                }
-                //12月上报管理
-                titles[1] -> {
-                    toActivity(ReportManagementActivity::class.java)
-                }
+                    //12月上报管理
+                    titles[1] -> {
+                        toActivity(ReportManagementActivity::class.java)
+                    }
 //                12月工作统计
 //                titles[2] -> {
 //                    showShort("敬请期待")
@@ -138,6 +142,7 @@ class HomeFragment : BaseFragment(), HomeContract.View {
 //                    showShort("敬请期待")
 //                }
 
+                }
             }
 
         }
@@ -168,45 +173,52 @@ class HomeFragment : BaseFragment(), HomeContract.View {
         //"物业问题", "家庭走访","人员监管","公共安全"
         headerAdapter.onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
             val title = headerAdapter.data[position][Constants.TEXT] as String
-            when (title) {
-                texts[0],
-                texts[2],
-                texts[3] -> {
-                    var type = -1
-                    when (title) {
-                        texts[0] -> type = 1
-//                        texts[2] -> type = 2
-                        texts[3] -> type = 3
-                    }
-                    AndPermission.with(this)
-                        .runtime()
-                        .permission(
-                            Permission.ACCESS_FINE_LOCATION,
-                            Permission.WRITE_EXTERNAL_STORAGE, Permission.READ_EXTERNAL_STORAGE, Permission.CAMERA
-                        )
-                        .rationale(RuntimeRationale())
-                        //跳转到问题上报页面
-                        .onGranted {
-                            val intent = Intent(activity, ProblemReportingActivity::class.java)
-                            intent.putExtra(Constants.TYPE, type)
-                            startActivity(intent)
-                            activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
-                        }
-                        .onDenied { permissions -> showSettingDialog(activity, permissions) }
-                        .start()
+            if (auth_type == 3) {
+                if (texts[4].equals(title)) {
+                    toActivity(AddressBookActivity::class.java)
+                } else {
+                    showShort("无权限")
                 }
+            } else {
+                when (title) {
+                    texts[0],
+                    texts[2],
+                    texts[3] -> {
+                        var type = -1
+                        when (title) {
+                            texts[0] -> type = 1
+//                        texts[2] -> type = 2
+                            texts[3] -> type = 3
+                        }
+                        AndPermission.with(this)
+                            .runtime()
+                            .permission(
+                                Permission.ACCESS_FINE_LOCATION,
+                                Permission.WRITE_EXTERNAL_STORAGE, Permission.READ_EXTERNAL_STORAGE, Permission.CAMERA
+                            )
+                            .rationale(RuntimeRationale())
+                            //跳转到问题上报页面
+                            .onGranted {
+                                val intent = Intent(activity, ProblemReportingActivity::class.java)
+                                intent.putExtra(Constants.TYPE, type)
+                                startActivity(intent)
+                                activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
+                            }
+                            .onDenied { permissions -> showSettingDialog(activity, permissions) }
+                            .start()
+                    }
 //                走访
-                texts[1] -> toActivity(ResidentManagementActivity::class.java)
-                //通讯录
-                texts[4] -> toActivity(AddressBookActivity::class.java)
-                //流动人口
-                texts[5] -> toActivity(FlowPeopleInfoActivity::class.java)
+                    texts[1] -> toActivity(ResidentManagementActivity::class.java)
+                    //通讯录
+                    texts[4] -> toActivity(AddressBookActivity::class.java)
+                    //流动人口
+                    texts[5] -> toActivity(FlowPeopleInfoActivity::class.java)
 //                人员监管
-                texts[6] -> toActivity(PersonnelSupervisionActivity::class.java)
+                    texts[6] -> toActivity(PersonnelSupervisionActivity::class.java)
 //                关爱对象
-                texts[7] -> toActivity(CaringObjectActivity::class.java)
+                    texts[7] -> toActivity(CaringObjectActivity::class.java)
 
-
+                }
             }
         }
     }

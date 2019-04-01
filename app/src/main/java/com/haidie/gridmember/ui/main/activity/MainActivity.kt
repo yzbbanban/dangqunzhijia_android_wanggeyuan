@@ -22,6 +22,7 @@ import com.tencent.android.tpush.XGPushManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), MainContract.View {
+    private var auth_type by Preference(Constants.AUTH_TYPE, -1)
 
     private var mIndex = 0
     private val mTitle = arrayOf("工作", "工单", "生活", "我的")
@@ -223,11 +224,18 @@ class MainActivity : BaseActivity(), MainContract.View {
                 }
             1  //工单
             -> mOrderFragment?.let {
-                transaction.show(
-                    it
-                )
-                currentFragment =
-                    it
+
+                if (auth_type == 1) {
+
+                    transaction.show(
+                        it
+                    )
+                    currentFragment =
+                        it
+                } else {
+                    showShort("无权限")
+                }
+
             }
                 ?: OrderFragment.getInstance(
                     mTitle[position]

@@ -48,6 +48,8 @@ class CareReturnVisitActivity : BaseActivity(), ReturnVisitContract.View {
 
     override fun initData() {
         mId = intent.getIntExtra(Constants.ID, -1)
+        blockId = intent.getStringExtra(Constants.BLOCK_ID)
+        hourseId = intent.getStringExtra(Constants.HOURSE_ID)
         mOption = LocationClientOption()
         mOption?.apply {
             locationMode = LocationClientOption.LocationMode.Hight_Accuracy
