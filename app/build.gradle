@@ -14,15 +14,15 @@ android {
     def API_RELEASE_HOST = "\"http://www.crystal-cloud.top/\""
     //测试环境  测试环境地址
 //    def API_TEST_HOST = "\"http://192.168.124.11:86/\""
-    def API_TEST_HOST = "\"http://prerelease.crystal-cloud.top/\""
+//    def API_TEST_HOST = "\"http://prerelease.crystal-cloud.top/\""
     defaultConfig {
         applicationId "com.haidie.gridmember"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 12
-        versionName "1.1.1"
+        versionCode 13
+        versionName "1.1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_HOST", "${API_TEST_HOST}")
+        buildConfigField("String", "API_HOST", "${API_RELEASE_HOST}")
         buildConfigField "boolean", "LOG_DEBUG", "false"
         multiDexEnabled true
         ndk {
@@ -55,7 +55,7 @@ android {
             //是否输出日志
             buildConfigField "boolean", "LOG_DEBUG", "false"
             //url动态替换,正式url
-            buildConfigField "String", "API_HOST", "${API_TEST_HOST}"
+            buildConfigField "String", "API_HOST", "${API_RELEASE_HOST}"
             //是否混淆
             minifyEnabled true
             zipAlignEnabled true
@@ -70,7 +70,7 @@ android {
             buildConfigField "boolean", "LOG_DEBUG", "true"
             //url动态替换
 //            buildConfigField "String", "API_HOST", "${API_TEST_HOST}"//API test
-            buildConfigField "String", "API_HOST", "${API_TEST_HOST}"
+            buildConfigField "String", "API_HOST", "${API_RELEASE_HOST}"
             // 移除无用的resource文件
             shrinkResources false
             //是否混淆
