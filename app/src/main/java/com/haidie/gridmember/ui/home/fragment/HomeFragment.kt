@@ -187,9 +187,10 @@ class HomeFragment : BaseFragment(), HomeContract.View {
                         var type = -1
                         when (title) {
                             texts[0] -> type = 1
-//                        texts[2] -> type = 2
+                            texts[2] -> type = 2
                             texts[3] -> type = 3
                         }
+
                         AndPermission.with(this)
                             .runtime()
                             .permission(

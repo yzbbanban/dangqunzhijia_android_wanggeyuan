@@ -10,6 +10,7 @@ import com.haidie.gridmember.R
 import com.haidie.gridmember.base.BaseActivity
 import com.haidie.gridmember.ui.home.adapter.AddResidentInfoAdapter
 import com.haidie.gridmember.ui.home.view.AddResidentInfoDividerItemDecoration
+import com.haidie.gridmember.utils.LogHelper
 import com.haidie.gridmember.view.RuntimeRationale
 import com.yanzhenjie.permission.AndPermission
 import com.yanzhenjie.permission.Permission
@@ -36,7 +37,6 @@ class AddResidentInfoActivity : BaseActivity() {
         spaceId = intent.getIntExtra(Constants.SPACE_ID,-1)
         houseId = intent.getIntExtra(Constants.HOUSE_ID,-1)
         title = intent.getStringExtra(Constants.TEXT)
-
         dataList.clear()
         for (i in 0 until texts.size) {
             val map = HashMap<String,Any>()

@@ -15,6 +15,7 @@ import com.haidie.gridmember.mvp.contract.home.HouseDetailContract
 import com.haidie.gridmember.mvp.presenter.home.HouseDetailPresenter
 import com.haidie.gridmember.net.exception.ApiErrorCode
 import com.haidie.gridmember.ui.home.adapter.HouseDetailAdapter
+import com.haidie.gridmember.utils.LogHelper
 import com.haidie.gridmember.utils.Preference
 import com.haidie.gridmember.view.RuntimeRationale
 import com.yanzhenjie.permission.AndPermission
